@@ -4,14 +4,14 @@
 #
 Name     : R-diptest
 Version  : 0.75.7
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/diptest_0.75-7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/diptest_0.75-7.tar.gz
 Summary  : Hartigan's Dip Test Statistic for Unimodality - Corrected
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-diptest-lib
-BuildRequires : clr-R-helpers
+Requires: R-diptest-lib = %{version}-%{release}
+BuildRequires : buildreq-R
 
 %description
 multimodality and provide a test with simulation based p-values,  where
@@ -33,11 +33,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523302012
+export SOURCE_DATE_EPOCH=1552751373
 
 %install
+export SOURCE_DATE_EPOCH=1552751373
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523302012
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -72,8 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library diptest|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  diptest || :
 
 
 %files
@@ -110,10 +109,14 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/diptest/help/paths.rds
 /usr/lib64/R/library/diptest/html/00Index.html
 /usr/lib64/R/library/diptest/html/R.css
-/usr/lib64/R/library/diptest/libs/symbols.rds
+/usr/lib64/R/library/diptest/tests/ex1.R
+/usr/lib64/R/library/diptest/tests/ex1.Rout.save
+/usr/lib64/R/library/diptest/tests/mechler-ex.R
+/usr/lib64/R/library/diptest/tests/mechler-ex.Rout.save
+/usr/lib64/R/library/diptest/tests/sim1.R
+/usr/lib64/R/library/diptest/tests/sim1.Rout.save
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/diptest/libs/diptest.so
 /usr/lib64/R/library/diptest/libs/diptest.so.avx2
-/usr/lib64/R/library/diptest/libs/diptest.so.avx512

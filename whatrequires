@@ -1,20 +1,2 @@
 # This file contains recursive sources that require this package
-R-AER
-R-DendSer
-R-betareg
-R-broom
-R-caret
-R-clue
-R-dendextend
 R-flexmix
-R-fpc
-R-mi
-R-modelr
-R-mvoutlier
-R-partykit
-R-recipes
-R-robCompositions
-R-sem
-R-seriation
-R-systemfit
-R-tidyverse
