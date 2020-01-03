@@ -4,7 +4,7 @@
 #
 Name     : R-diptest
 Version  : 0.75.7
-Release  : 23
+Release  : 24
 URL      : https://cran.r-project.org/src/contrib/diptest_0.75-7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/diptest_0.75-7.tar.gz
 Summary  : Hartigan's Dip Test Statistic for Unimodality - Corrected
